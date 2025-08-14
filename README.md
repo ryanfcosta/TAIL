@@ -2,7 +2,7 @@
 
 ![Logo TAIL](<proto2/riw/cpython/static/images/taillogotipow 1.png>)
 
-[![Botão Instagram](https://camo.githubusercontent.com/5c3f3164b340475c38f1ec3d8c6d0c6e8656fbccac25d06cfb86477079b88638/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f696e7374616772616d2d2532334534343035462e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d696e7374616772616d266c6f676f436f6c6f723d7768697465) @tail_tcc](https://www.instagram.com/tail_tcc)
+[@tail_tcc](https://www.instagram.com/tail_tcc)
 
 O Totem de Acessibilidade e Informação em Libras é um trabalho de conclusão de curso do curso técnico integrado de informática do IFRJ campus Niterói.
 
@@ -39,7 +39,15 @@ Um braço robótico feito de material ABS, que por meio de um website, é respon
 - Microcontrolador ESP32-CAM
 - Computador com Python para reconhecimento de gestos
 
-## Protótipo 3 (Em andamento)
+## Protótipo Rio Innovation Week
+<div style="display: flex;">
+  <img src="images/protoriw1.png" alt="Protótipo RIW 1" width="45%; padding: 5px;">
+  <img src="images/protoriw2.jpg" alt="Protótipo RIW 2" width="49%"; padding: 5px;>
+</div>
+
+Apresentação de um modelo novo de braço robótico que traz diversas experiências divertidas e principalmente acessíveis para pessoas com deficiência auditiva. Estivemos presentes nos estandes da área do MEC dos campi IFRJ.
+
+## Projeto Final
 ![Protótipo 3](images/proto3.png)
 
 Um totem estrategicamente posicionado em locais como centros culturais, museus e shoppings. Com uma interface intuitiva composta por botões pré-programados e descrições em braille, o TAIL estabelece uma nova abordagem para fornecer informações vitais. Ao pressionar um botão, o robô integrado oferece informações em LIBRAS e áudio, demonstrando uma integração exemplar entre tecnologia e acessibilidade
@@ -49,3 +57,6 @@ Um totem estrategicamente posicionado em locais como centros culturais, museus e
 - Raspberry PI 4
 - Arduino Mega
 - Zero Delay board
+
+## Nossa equipe
+![Equipe](images/equipe.png)

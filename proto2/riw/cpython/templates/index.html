@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAIL</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='images/taillogow 1.png')}}" type="image/x-icon">
+    <style>
+        *{
+        background: #121E1F;
+        }
+        .container{
+            display: flex;
+        }
+        .row{
+            flex-direction: row;
+            display: flex;
+            /* margin-left:15.5%; */
+            justify-content: center;
+        }
+        .column{
+            flex-direction: column;
+        }
+        .ladinho{
+            width: 133.5px;
+            height: 248.5px;
+            flex-shrink: 0;
+            fill: #128891;
+            margin-top: 190px;
+        }
+        #recuo{
+            height: 420px;
+        }
+        #titulo{
+            color: #FFF;
+            font-family: sans-serif;
+            font-size: 58px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-top: 160px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .texto{
+            color: #FFF;
+            text-align: center;
+            font-family: Verdana;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            text-align: center;
+            margin-top: 0%;
+        }
+        #jogo, #letra, #exp, #inicio{
+            width:639px;
+            height:139px;
+        }
+        #jogo, #letra, #exp, #voltar, #jogar {
+            display: none;
+        }
+        main{
+            border: #2B877D 2px solid;
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-top: 0px;
+            /*margin-bottom: 150px;*/
+        }
+        section > button, main > button {
+            border: none;
+            background-color: transparent;
+            color: #FFF;
+            font-weight: bold;
+            font-size: 38px;
+            cursor: pointer;
+            text-align: center;
+            margin: auto;
+            margin-left: 8px;
+            width: 31px;
+            height: 47px;
+        }
+        #botaoletra{
+            border-radius: 3px;
+            background: #2B877D;
+            border: none;
+            box-shadow: 5px 6px 4px 0px rgba(0, 0, 0, 0.25);
+            display: flex;
+            width: 160px;
+            height: 70px;
+            padding: 2px 1px 0px 3px;
+            align-items: flex-start;
+            gap: 5px;
+            flex-shrink: 0; 
+            margin-right: none;
+            margin-top: 25px;
+        }
+        #tipoletra{
+            color: #FFF;
+            text-align: center;
+            font-family: Verdana;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal; 
+            background: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1 0 0;
+            align-self: stretch; 
+        }
+        #botaoexp{
+            border-radius: 3px;
+            background: #2B877D;
+            border: none;
+            box-shadow: 5px 6px 4px 0px rgba(0, 0, 0, 0.25);
+            display: flex;
+            width: 250px;
+            height: 70px;
+            padding: 2px 1px 0px 3px;
+            align-items: flex-start;
+            gap: 5px;
+            flex-shrink: 0; 
+            margin-left: 47px;
+            margin-right: 47px;
+            margin-top: 25px;
+        }
+        #tipoexp{
+            color: #FFF;
+            text-align: center;
+            font-family: Verdana;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            background: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1 0 0;
+            align-self: stretch;
+        }
+        #botaojogo{
+            border-radius: 3px;
+            background: #2B877D;
+            border: none;
+            box-shadow: 5px 6px 4px 0px rgba(0, 0, 0, 0.25);
+            display: flex;
+            width: 135px;
+            height: 70px;
+            padding: 2px 1px 0px 3px;
+            align-items: flex-start;
+            gap: 5px;
+            flex-shrink: 0;
+            margin-top: 25px;
+        }
+        #tipojogo{
+            color: #FFF;
+            text-align: center;
+            font-family: Verdana;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            background: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1 0 0;
+            align-self: stretch;
+            }
+            #botaojogar {
+                border-radius: 3px;
+                background: #2B877D;
+                border: none;
+                box-shadow: 5px 6px 4px 0px rgba(0, 0, 0, 0.25);
+                display: flex;
+                padding: 2%;
+                align-items: flex-start;
+                gap: 5px;
+                flex-shrink: 0;
+                justify-content: center;
+                margin: auto;
+                margin-top: none;
+            }
+        #botaovoltar{
+            border-radius: 3px;
+            background: #2B877D;
+            border: none;
+            box-shadow: 5px 6px 4px 0px rgba(0, 0, 0, 0.25);
+            display: flex;
+            width: 175px;
+            height: 60px;
+            padding: 2px 1px 0px 3px;
+            align-items: flex-start;
+            gap: 5px;
+            flex-shrink: 0;
+            justify-content: center;
+            margin: auto;
+            margin-top: none;
+        }
+        #tipovoltar{
+            color: #FFF;
+            text-align: center;
+            font-family: Verdana;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            background: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1 0 0;
+            align-self: stretch;
+            margin: 0px;
+        }
+        img{
+            background: none;
+            text-align: center;
+            justify-content: center;
+        }
+        button {
+            cursor: pointer;
+        }
+        #botaotail{
+            border-radius: 3px;
+            background: none;
+            border: 2px #2B877D solid;
+            box-shadow: 5px 6px 4px 0px rgba(0, 0, 0, 0.25);
+            display: flex;
+            width: 95px;
+            height: 95px;
+            padding: 2px 1px 0px 3px;
+            align-items: flex-start;
+            gap: 5px;
+            flex-shrink: 0; 
+        }
+        #tail{
+            height: 90px;
+            width: 90px;
+            text-align: center;
+            justify-content: center;
+            align-self: stretch;
+            background: none;
+            padding-left: 1.5px;
+        }
+        #botaoriw{
+            border-radius: 3px;
+            background: none;
+            border: 2px #2B877D solid;
+            box-shadow: 5px 6px 4px 0px rgba(0, 0, 0, 0.25);
+            display: flex;
+            width: 215px;
+            height: 95px;
+            padding: 2px 1px 0px 3px;
+            align-items: flex-start;
+            gap: 5px;
+            flex-shrink: 0;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        #riwb{
+            height: 80px;
+            width: 200px;
+            text-align: center;
+            justify-content: center;
+            align-self: stretch;
+            background: none;
+            margin-left: 1%;
+        }
+        #botaoifrj{
+            border-radius: 3px;
+            background: none;
+            border: 2px #2B877D solid;
+            box-shadow: 5px 6px 4px 0px rgba(0, 0, 0, 0.25);
+            display: flex;
+            width: 95px;
+            height: 95px;
+            padding: 2px 1px 0px 3px;
+            align-items: flex-start;
+            gap: 5px;
+            flex-shrink: 0; 
+        }
+        #ifrj{
+            height: 90px;
+            width: 90px;
+            text-align: center;
+            justify-content: center;
+            align-self: stretch;
+            background: none;
+        }
+        #botaopalmas{
+            border-radius: 3px;
+            background: none;
+            border: 2px #2B877D solid;
+            box-shadow: 5px 6px 4px 0px rgba(0, 0, 0, 0.25);
+            display: flex;
+            width: 300px;
+            height: 60px;
+            padding: 2px 1px 0px 3px;
+            align-items: flex-start;
+            gap: 5px;
+            flex-shrink: 0;
+            justify-content: center;
+            text-align: center;
+            margin-left: 170px;
+            margin-top: 20px;
+        }
+        #tipopalmas{
+            color: #FFF;
+            text-align: center;
+            font-family: Verdana;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            background: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1 0 0;
+            align-self: stretch;
+            margin: 0px;
+        }
+        #logotail{
+            margin-left:146px;
+            margin-right:146px;
+            height: 139.5px;
+            width: 139.5px;
+            margin-top: 3%;
+        }
+        #riw{
+            width: 152.5px;
+            height: 61px;
+            margin-right: 141px;
+            margin-bottom: 2%;
+        }
+        #logoif{
+            height: 168.5px;
+            width: 168.5px;
+            margin-left: 540px;
+            margin-top: 40px;
+            margin-top: 3%;   
+        }
+        #cameraImg {
+            width: 426.666;
+            height: 240px;
+            border: #2B877D solid 2px;
+        }
+        #jokenpo{
+            margin-left: 10px;
+        }
+        .ppt{
+            border: 2px #2B877D solid;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #FFF;
+            text-align: center;
+            font-family: Verdana;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            text-align: center;
+            align-self: stretch;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="row" id="recuo">
+        <img src="{{url_for('static', filename='images/ladod.svg')}}" alt="listra lateral esquerda" class="ladinho" id="ladod"> </img>
+        <div class="column">
+            <p id="titulo">Mão Robótica</p>
+            <div id="inicio">
+                <p class="texto">Escolha como quer controlar a mão</p>
+                <div class="container">
+                    <!--Botões-->
+                    <button onclick="guia('#letra')" id="botaoletra">
+                        <p id="tipoletra" class="bottext">LETRAS</p>
+                    </button>
+                    <button onclick="guia('#exp')" id="botaoexp">
+                        <p id="tipoexp">EXPRESSÕES</p>
+                    </button>
+                    <button onclick="guia('#jogo')" id="botaojogo">
+                        <p id="tipojogo">JOGO</p>
+                    </button>
+                </div>
+            </div>
+            <div id="letra" >
+                <div class="column container">
+                    <main class="column">
+                        <section class="row">
+                            <button class="botao">A</button>
+                            <button class="botao">B</button>
+                            <button class="botao">C</button>
+                            <button class="botao" style="margin-right: 8px">D</button>
+                        </section>
+                        <section class="row">
+                            <button class="botao">E</button>
+                            <button class="botao">F</button>
+                            <button class="botao">I</button>
+                            <button class="botao" style="margin-right: 8px">L</button>
+                        </section>
+                        <section class="row">
+                            <button class="botao">O</button>
+                            <button class="botao">S</button>
+                            <button class="botao">T</button>
+                            <button class="botao" style="margin-right: 8px">V</button>
+                        </section>
+                        <section class="row">
+                            <button class="botao"></button>
+                            <button class="botao">W</button>
+                            <button class="botao">Y</button>
+                            <button class="botao" style="margin-right: 8px"></button>
+                        </section>
+                    </main>
+            </div>
+            </div>
+            <div id="exp">
+                <div class="column container" >
+                    <div class="row">
+                        <button class="botao" id="botaotail">
+                            <img src="{{url_for('static', filename='images/taillogow 1.png')}}" alt="Logo Tail" id="tail">
+                        </button>
+                        <button class="botao" id="botaoriw">
+                            <img src="{{url_for('static', filename='images/riw.png')}}" alt="Logo Rio Innovation Week" id="riwb">
+                        </button>
+                        <button class="botao" id="botaoifrj">
+                            <img src="{{url_for('static', filename='images/ifrj.png')}}" alt="Logo IFRJ" id="ifrj">
+                        </button>
+                    </div>
+                    <button class="botao" id="botaopalmas">
+                        <p id="tipopalmas">PALMAS</p>
+                    </button>
+                </div>
+            </div>
+            <div id="jogo">
+                <div class="row">
+                        <img src="{{url_for('static', filename='images/PEDRA.png')}}" id="cameraImg" alt="Vídeo da camera!">
+                    <div class="column" id="jokenpo">
+                        <div class="ppt" style="margin-top: 15px;">
+                            <p style="margin-top: 1px; padding-left: 2px;padding-right: 2px;" >SUA JOGADA</p>
+                            <p class="status" style="color:#128891"></p>
+                        </div>
+                        <div class="ppt">
+                            <p style="margin-top: 1px; padding-left: 10px;padding-right: 10px;">JOGADA DA MÃO</p>
+                            <p class="status" style="color:#128891"></p>
+                        </div>
+                        <div class="ppt">
+                            <p style="margin-top: 1px">RESULTADO<p>
+                            <p class="status" style="color:#128891"></p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div id="jogar">
+                    <button onclick="jogar()"  id="botaojogar">
+                        <p id="tipovoltar">JOGAR NOVAMENTE!</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <img src="{{url_for('static', filename='images/ladoe.svg')}}" alt="listra lateral direita" class="ladinho" id="ladoe">
+    </div>
+    <div id="voltar">
+        <button onclick="voltar()"  id="botaovoltar">
+            <p id="tipovoltar">VOLTAR</p>
+        </button>
+    </div>
+    <div id="imgrow">
+        <img id="logoif" src="{{url_for('static', filename='images/ifbranco 1.png')}}" alt="Logo IFRJ campus Niterói">
+        <img id="logotail" src="{{url_for('static', filename='images/taillogotipow 1.png')}}" alt="Logotipo Tail">
+        <img id="riw" src="{{url_for('static', filename='images/riw.png')}}" alt="Logo Rio Innovation Week">
+    </div>
+    <script>
+        let jogo = 0
+        const PAGINAS = ["#inicio", "#letra", "#exp", "#jogo"]
+        let textosResposta = document.querySelectorAll("p.resposta")
+        
+        async function voltar(){
+            const resposta = await fetch("/voltar")
+            .then(resposta => {
+                const dados = resposta
+                console.log(dados)
+            })
+            guia('#inicio')
+            const NEWPAGINAS = ["#letra", "#exp", "#jogo"]
+            NEWPAGINAS.forEach((pagina) => {
+                document.querySelector(pagina).style.display = "none"
+            })
+            document.querySelector("#inicio").style.display = "block"
+            document.querySelector("#ladoe").src = "{{url_for('static', filename='images/ladoe.svg')}}"
+            document.querySelector("#ladoe").style.height = "248.5px"
+            document.querySelector("#ladoe").style.marginTop = "190px"
+            document.querySelector("#ladod").src = "{{url_for('static', filename='images/ladod.svg')}}"
+            document.querySelector("#ladod").style.height = "248.5px"
+            document.querySelector("#ladod").style.marginTop = "190px"
+            document.querySelector("#logoif").style.marginTop = "56.55px"
+            document.querySelector("#logotail").style.marginTop = "56.55px"
+            document.querySelector("#riw").style.marginTop = "56.55px"
+            document.querySelector("#recuo").style.height = "420px"
+            if(jogo == 1){
+                document.querySelector("#cameraImg").src = "{{url_for('static', filename='images/pedra.png')}}"   
+            }
+        }
+        async function jogar() {
+            const resposta = await fetch("/voltar")
+            .then(resposta => {
+                const dados = resposta
+                console.log(dados)
+            })
+            document.querySelector("#cameraImg").src = "{{url_for('static', filename='images/pedra.png')}}"
+            document.querySelector("#recuo").style.height = "500px"
+            document.querySelector("#logoif").style.marginTop = "0px"
+            document.querySelector("#logotail").style.marginTop = "0px"
+            document.querySelector("#riw").style.marginTop = "0px"
+            document.querySelector("#ladoe").src = "{{url_for('static', filename='images/ladod2.svg')}}"
+            document.querySelector("#ladoe").style.height = "603px"
+            document.querySelector("#ladoe").style.marginTop = "63px"
+            document.querySelector("#ladod").src = "{{url_for('static', filename='images/ladoe2.svg')}}"
+            document.querySelector("#ladod").style.height = "603px"
+            document.querySelector("#ladod").style.marginTop = "63px"
+            document.querySelector("#logoif").style.marginTop = "0px"
+            document.querySelector("#logotail").style.marginTop = "0px"
+            document.querySelector("#riw").style.marginTop = "0px"
+            document.querySelector("#recuo").style.height = "645px"
+
+            if(jogo == 0){
+
+                setTimeout(()=>{
+                    document.querySelector('#cameraImg').src="{{url_for('static', filename='images/PAPEL.png')}}"
+                    setTimeout(()=>{
+                        document.querySelector('#cameraImg').src="{{url_for('static', filename='images/TESOURA.png')}}"
+                        setTimeout(()=>{
+                            document.querySelector("#cameraImg").src = "http://localhost/camera"
+                            setInterval(() => {
+                                if (document.querySelector("#cameraImg").src == "http://localhost/camera") {
+                                    fetch("/jogoStatus").then(resposta => resposta.text()).then(dados => {
+                                        console.log(dados)
+                                        textoStatus = document.querySelectorAll(".status")
+                                        textoStatus[0].innerHTML = Array.from(dados.split(","))[0]
+                                        textoStatus[1].innerHTML = Array.from(dados.split(","))[1]
+                                        textoStatus[2].innerHTML = Array.from(dados.split(","))[2]
+                                    })
+                                }
+                            }, 1000)
+                        },1000)
+                    },1000)
+                },1000)
+                jogo = 1
+            }else{
+                console.log("Segunda vez")
+                setTimeout(()=>{
+                    document.querySelector('#cameraImg').src="{{url_for('static', filename='images/PAPEL.png')}}"
+                    setTimeout(()=>{
+                        document.querySelector('#cameraImg').src="{{url_for('static', filename='images/TESOURA.png')}}"
+                        setTimeout(()=>{
+                            document.querySelector("#cameraImg").src = "http://localhost/camera"
+                            setInterval(() => {
+                                if (document.querySelector("#cameraImg").src == "http://localhost/camera") {
+                                    fetch("/jogoStatus").then(resposta => resposta.text()).then(dados => {
+                                        console.log(dados)
+                                        textoStatus = document.querySelectorAll(".status")
+                                        textoStatus[0].innerHTML = Array.from(dados.split(","))[0]
+                                        textoStatus[1].innerHTML = Array.from(dados.split(","))[1]
+                                        textoStatus[2].innerHTML = Array.from(dados.split(","))[2]
+                                    })
+                                }
+                            }, 1000)
+                        },1000)
+                    },1000)
+                },1000)
+            }
+        }
+        function guia(op) {
+            PAGINAS.forEach((pagina) => {
+                document.querySelector(pagina).style.display = "none"
+            })
+            document.querySelector(op).style.display = "block"
+            
+            if(op == "#inicio"){
+                document.querySelector("#voltar").style.display = "none"
+                document.querySelector("#jogar").style.display = "none"
+            }
+            
+            if(op== "#jogo" || op == "#exp"  || op == "#letra"){
+                document.querySelector("#voltar").style.display = "flex"
+                document.querySelector("#jogar").style.display = "flex"
+            }
+
+            if(op == "#exp"){
+                document.querySelector("#recuo").style.height = "480px"
+
+            }
+            if (op == "#jogo") {
+                jogar()
+            }
+
+            if (op == "#letra"){
+                document.querySelector("#ladoe").src = "{{url_for('static', filename='images/ladod2.svg')}}"
+                document.querySelector("#ladoe").style.height = "603px"
+                document.querySelector("#ladoe").style.marginTop = "63px"
+                document.querySelector("#ladod").src = "{{url_for('static', filename='images/ladoe2.svg')}}"
+                document.querySelector("#ladod").style.height = "603px"
+                document.querySelector("#ladod").style.marginTop = "63px"
+                document.querySelector("#logoif").style.marginTop = "0px"
+                document.querySelector("#logotail").style.marginTop = "0px"
+                document.querySelector("#riw").style.marginTop = "0px"
+                document.querySelector("#recuo").style.height = "580px"
+            }
+
+        }
+
+        
+        //não ta funfando ainda
+        let botoes = document.querySelectorAll(".botao")
+
+        async function on(pagina) {
+            console.log("/" + pagina)
+            const resposta = await fetch("/" + pagina)
+            .then(resposta => {
+                const dados = resposta
+                console.log(dados)
+            })
+            botoes.forEach(elemento => elemento.style.opacity = "1")
+        }
+
+        botoes.forEach((elemento) => {
+            elemento.style.opacity = "1"
+            elemento.addEventListener("click", () => {
+                if (elemento.style.opacity == "1") {
+                    botoes.forEach(elemento => elemento.style.opacity = "0.25")
+                    elemento.style.opacity = "1"
+
+                    elemento.id == "" ? on(elemento.innerHTML) : on(elemento.id)
+                }
+            })
+        })
+    </script>
+</body>
+</html>
